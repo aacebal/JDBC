@@ -18,12 +18,14 @@ public class Main {
             Statement statement = conn.createStatement();
             statement.execute("CREATE TABLE IF NOT EXISTS contacts " +
                                    "(name TEXT, phone INTEGER, email TEXT)");
-            statement.execute("INSERT INTO contacts (name, phone, email) " +
-                                   "VALUES('Joe', 3056689112, 'joe@email.com')");
-            statement.execute("INSERT INTO contacts (name, phone, email) " +
-                                   "VALUES('James', 305315552, 'james@email.com')");
-            statement.execute("INSERT INTO contacts (name, phone, email) " +
-                                   "VALUES('Valeria', 3058622267, 'valeria@email.com')");
+//            statement.execute("INSERT INTO contacts (name, phone, email) " +
+//                                   "VALUES('Joe', 3056689112, 'joe@email.com')");
+//            statement.execute("INSERT INTO contacts (name, phone, email) " +
+//                                   "VALUES('James', 305315552, 'james@email.com')");
+//            statement.execute("INSERT INTO contacts (name, phone, email) " +
+//                                   "VALUES('Valeria', 3058622267, 'valeria@email.com')");
+
+            statement.execute("UPDATE contacts SET phone = 7863332255 WHERE name = 'Valeria'");
             statement.close();
             conn.close();
 

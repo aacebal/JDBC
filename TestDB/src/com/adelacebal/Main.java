@@ -1,9 +1,6 @@
 package com.adelacebal;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Main {
 
@@ -25,8 +22,18 @@ public class Main {
 //            statement.execute("INSERT INTO contacts (name, phone, email) " +
 //                                   "VALUES('Valeria', 3058622267, 'valeria@email.com')");
 
-            statement.execute("UPDATE contacts SET phone = 7863332255 WHERE name = 'Valeria'");
-            statement.execute("DELETE FROM contacts WHERE name = 'James'");
+//            statement.execute("UPDATE contacts SET phone = 7863332255 WHERE name = 'Valeria'");
+//            statement.execute("DELETE FROM contacts WHERE name = 'James'");
+
+            statement.execute("SELECT * FROM contacts");
+            ResultSet results = statement.getResultSet();
+            while(results.next()) {
+                System.out.println(results.getString("name") + " " +
+                                   results.getString("phone") + " " +
+                                   results.getString("email"));
+            }
+
+            results.close();
 
             statement.close();
             conn.close();

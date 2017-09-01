@@ -26,6 +26,8 @@ public class Main {
 //                                   "VALUES('Valeria', 3058622267, 'valeria@email.com')");
 
             statement.execute("UPDATE contacts SET phone = 7863332255 WHERE name = 'Valeria'");
+            statement.execute("DELETE FROM contacts WHERE name = 'James'");
+
             statement.close();
             conn.close();
 

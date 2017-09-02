@@ -43,15 +43,15 @@ public class Main {
 //            statement.execute("INSERT INTO " + TABLE_CONTACTS + "(" + COLUMN_NAME + ", "
 //                                + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('Joe', 786836, 'joe@mail.com')");
 
-            statement.execute("UPDATE " + TABLE_CONTACTS + " SET " +
-                                COLUMN_PHONE + "=786123 " + " WHERE " + COLUMN_NAME + "= 'Tim'");
-            statement.execute("  DELETE FROM " + TABLE_CONTACTS +
-                                " WHERE " + COLUMN_NAME + "= 'Joe'");
+//            statement.execute("UPDATE " + TABLE_CONTACTS + " SET " +
+//                                COLUMN_PHONE + "=786123 " + " WHERE " + COLUMN_NAME + "= 'Tim'");
+//            statement.execute("  DELETE FROM " + TABLE_CONTACTS +
+//                                " WHERE " + COLUMN_NAME + "= 'Joe'");
 
             ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_CONTACTS);
             while(results.next()) {
                 System.out.println(results.getString(COLUMN_NAME) + " " +
-                                   results.getString(COLUMN_PHONE) + " " +
+                                   results.getInt(COLUMN_PHONE) + " " +
                                    results.getString(COLUMN_EMAIL));
             }
 

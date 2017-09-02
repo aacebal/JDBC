@@ -68,7 +68,7 @@ public class DataSource {
             sb.append(" ORDER BY ");
             sb.append(COLUMN_ARTIST_NAME);
             sb.append(" COLLATE NOCASE ");
-            if (sortOrder = ORDER_BY_DESC) {
+            if (sortOrder == ORDER_BY_DESC) {
                 sb.append("DESC");
             } else {
                 sb.append("ASC");
@@ -77,7 +77,6 @@ public class DataSource {
 
         try(Statement statement = conn.createStatement();
             ResultSet results = statement.executeQuery(sb.toString());) {
-
 
             List<Artist> artists = new ArrayList<>();
             while(results.next()) {

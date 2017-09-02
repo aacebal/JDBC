@@ -30,14 +30,18 @@ public class Main {
                                     + COLUMN_EMAIL + " text" +
                                     ")");
 
-            statement.execute("INSERT INTO " + TABLE_CONTACTS + " (" + COLUMN_NAME + ", "
-                                + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('Adel', 786365, 'adel@mail.com')");
+            insertContact(statement, "Adel", 786365, "adel@email.com");
+            insertContact(statement, "Joe", 786836, "joe@email.com");
+            insertContact(statement, "Tim", 786468, "tim@email.com");
 
-            statement.execute("INSERT INTO " + TABLE_CONTACTS + "(" + COLUMN_NAME + ", "
-                                + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('Tim', 786468, 'tim@mail.com')");
+//            statement.execute("INSERT INTO " + TABLE_CONTACTS + " (" + COLUMN_NAME + ", "
+//                                + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('Adel', 786365, 'adel@mail.com')");
 
-            statement.execute("INSERT INTO " + TABLE_CONTACTS + "(" + COLUMN_NAME + ", "
-                                + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('Joe', 786836, 'joe@mail.com')");
+//            statement.execute("INSERT INTO " + TABLE_CONTACTS + "(" + COLUMN_NAME + ", "
+//                                + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('Tim', 786468, 'tim@mail.com')");
+//
+//            statement.execute("INSERT INTO " + TABLE_CONTACTS + "(" + COLUMN_NAME + ", "
+//                                + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('Joe', 786836, 'joe@mail.com')");
 
             statement.execute("UPDATE " + TABLE_CONTACTS + " SET " +
                                 COLUMN_PHONE + "=786123 " + " WHERE " + COLUMN_NAME + "= 'Tim'");
@@ -60,5 +64,10 @@ public class Main {
             System.out.println("Something went wrong " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    private static void insertContact(Statement statement, String name, int phone, String email) throws SQLException {
+        statement.execute("INSERT INTO " + TABLE_CONTACTS + " (" + COLUMN_NAME + ", "
+        + COLUMN_PHONE + ", " + COLUMN_EMAIL + ")" + "VALUES('" + name + "', " + phone + ", '" + email + "')");
     }
 }

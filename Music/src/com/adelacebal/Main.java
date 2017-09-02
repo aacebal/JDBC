@@ -1,6 +1,9 @@
 package com.adelacebal;
 
+import com.adelacebal.model.Artist;
 import com.adelacebal.model.DataSource;
+
+import java.util.List;
 
 public class Main {
 
@@ -10,6 +13,17 @@ public class Main {
             System.out.println("Can't open data source");
             return;
         }
+
+        List<Artist> artists = dataSource.queryArtist();
+        if (artists == null) {
+            System.out.println("No artists!");
+            return;
+        }
+
+        for (Artist artist : artists) {
+            System.out.println("ID = " + artist.getId() + ", Name: = " + artist.getName());
+        }
+
         dataSource.close();
     }
 }
